@@ -33,9 +33,9 @@ public class TTSExample {
 			
 			String text = "你是否要看民視新聞。";
 			
-			String outputFileName = "out.mp3";
+			String outputFileName = "out.wav";
 			
-			URL u = new URL("http://iot.cht.com.tw/api/tts/ch/synthesis?inputText=" + URLEncoder.encode(text, "UTF-8") + "&outputName=" + outputFileName);
+			URL u = new URL("http://iot.cht.com.tw/api/tts/ch/synthesis?inputText=" + URLEncoder.encode(text, "UTF-8"));
 			
 			HttpURLConnection con = null;
 			
@@ -115,11 +115,11 @@ public class TTSExample {
 			
 			String text = "你是否要看民視新聞。";
 			
-			String outputFileName = "out_male.mp3";
+			String outputFileName = "out_female.wav";
 			
-			String speakerId = "tc"; // default is lsj
+			String speakerId = "lsj"; // default is lsj
 			
-			URL u = new URL("http://iot.cht.com.tw/api/tts/ch/synthesisMulti?inputText=" + URLEncoder.encode(text, "UTF-8") + "&outputName=" + outputFileName + "&speaker=" + speakerId);
+			URL u = new URL("http://iot.cht.com.tw/api/tts/ch/synthesisMulti?inputText=" + URLEncoder.encode(text, "UTF-8") + "&speaker=" + speakerId);
 			
 			HttpURLConnection con = null;
 			
@@ -199,9 +199,9 @@ public class TTSExample {
 			
 			String text = "我要看民視新聞。";
 			
-			String outputFileName = "out_tw.mp3";
+			String outputFileName = "out_tw.wav";
 			
-			URL u = new URL("http://iot.cht.com.tw/api/tts/tw/synthesis?inputText=" + URLEncoder.encode(text, "UTF-8") + "&outputName=" + outputFileName);
+			URL u = new URL("http://iot.cht.com.tw/api/tts/tw/synthesis?inputText=" + URLEncoder.encode(text, "UTF-8"));
 			
 			HttpURLConnection con = null;
 			
