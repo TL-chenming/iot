@@ -15,11 +15,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class TTSExample {
 	
-	boolean USE_PROXY = true;
+	boolean USE_PROXY = false;
+	
+	static final String API_KEY = "your api key";
 	
 	String Proxy_IP = "yourProxyIP";
 	int Proxy_Port = 1234; // your proxy port
-
+	
 	public static void main(String[] args) {
 		TTSExample tts = new TTSExample();
 		tts.callSynthesisTest();
@@ -35,7 +37,7 @@ public class TTSExample {
 			
 			String outputFileName = "out.wav";
 			
-			URL u = new URL("http://iot.cht.com.tw/api/tts/ch/synthesis?inputText=" + URLEncoder.encode(text, "UTF-8"));
+			URL u = new URL("http://iot.cht.com.tw/apis/CHTIoT/tts/v1/ch/synthesis?inputText=" + URLEncoder.encode(text, "UTF-8"));
 			
 			HttpURLConnection con = null;
 			
@@ -46,7 +48,8 @@ public class TTSExample {
 			else 
 				con = (HttpURLConnection) u.openConnection();
 			
-			con.setRequestMethod("POST");
+			con.setRequestProperty("X-API-Key", API_KEY);
+			con.setRequestMethod("GET");
 					
 			con.connect();
 
@@ -88,6 +91,7 @@ public class TTSExample {
 			else 
 				con = (HttpURLConnection) resultUrl.openConnection();
 	        
+	        con.setRequestProperty("X-API-Key", API_KEY);
 	        con.setRequestMethod("GET");
 			
 			con.connect();
@@ -119,7 +123,7 @@ public class TTSExample {
 			
 			String speakerId = "lsj"; // default is lsj
 			
-			URL u = new URL("http://iot.cht.com.tw/api/tts/ch/synthesisMulti?inputText=" + URLEncoder.encode(text, "UTF-8") + "&speaker=" + speakerId);
+			URL u = new URL("http://iot.cht.com.tw/apis/CHTIoT/tts/v1/ch/synthesis?inputText=" + URLEncoder.encode(text, "UTF-8") + "&speaker=" + speakerId);
 			
 			HttpURLConnection con = null;
 			
@@ -130,7 +134,8 @@ public class TTSExample {
 			else 
 				con = (HttpURLConnection) u.openConnection();
 			
-			con.setRequestMethod("POST");
+			con.setRequestProperty("X-API-Key", API_KEY);
+			con.setRequestMethod("Get");
 					
 			con.connect();
 
@@ -172,6 +177,7 @@ public class TTSExample {
 			else 
 				con = (HttpURLConnection) resultUrl.openConnection();
 	        
+	        con.setRequestProperty("X-API-Key", API_KEY);
 	        con.setRequestMethod("GET");
 			
 			con.connect();
@@ -201,7 +207,7 @@ public class TTSExample {
 			
 			String outputFileName = "out_tw.wav";
 			
-			URL u = new URL("http://iot.cht.com.tw/api/tts/tw/synthesis?inputText=" + URLEncoder.encode(text, "UTF-8"));
+			URL u = new URL("http://iot.cht.com.tw/apis/CHTIoT/tts/v1/tw/synthesis?inputText=" + URLEncoder.encode(text, "UTF-8"));
 			
 			HttpURLConnection con = null;
 			
@@ -212,7 +218,8 @@ public class TTSExample {
 			else 
 				con = (HttpURLConnection) u.openConnection();
 			
-			con.setRequestMethod("POST");
+			con.setRequestProperty("X-API-Key", API_KEY);
+			con.setRequestMethod("GET");
 					
 			con.connect();
 
@@ -254,6 +261,7 @@ public class TTSExample {
 			else 
 				con = (HttpURLConnection) resultUrl.openConnection();
 	        
+	        con.setRequestProperty("X-API-Key", API_KEY);
 	        con.setRequestMethod("GET");
 			
 			con.connect();
